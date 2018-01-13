@@ -37,7 +37,7 @@ export default {
     searchTerm: function(){
       this.$http.get('http://apis.skplanetx.com/weather/current/minutely?'+getXY(),{
         headers: {
-          appKey : 'd81348e0-a70e-3928-a8b5-9a35108a90c2' 
+          appKey : '---' 
         }
       }).then((result) => {
         console.log(result);
