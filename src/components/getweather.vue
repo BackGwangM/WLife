@@ -1,7 +1,8 @@
 <template>
   <div id="weather">
-    <button v-on:click="searchTerm">날씨 불러오기</button><br>
-    <span>{{msg}}</span>
+    <button v-if="msg=='날씨를 불러와 주세요'" v-on:click="get_weather">날씨 불러오기</button><br>
+    <span v-if="msg!='날씨를 불러와 주세요'">현재 {{station_name}}의 날씨는 {{sky}}이며 미세먼지 농도는 {{dust_value}}㎍/㎥으로써 {{dust_grade}}수준입니다.</span>
+    <div id="weather"></div>
   </div>
   
 </template>
@@ -30,19 +31,36 @@ export default {
   data(){
       name: 'Get-Weather'
       return{
-        msg: '날씨를 불러와 주세요'
+        station_name : '권한 설정이 안됬거나 지원되지 않는 브라우저 입니다.',
+        sky : '새로고침이 필요합니다.',
+        msg: '날씨를 불러와 주세요',
+        dust_value: '미세먼지가 조회가 되지 않습니다.',
+        dust_grade: '미세먼지가 조회가 되지 않습니다.'
       }
   },
   methods: {
-    searchTerm: function(){
+    get_weather: function(){
       this.$http.get('http://apis.skplanetx.com/weather/current/minutely?'+getXY(),{
         headers: {
-          appKey : '---' 
+          appKey : 'd81348e0-a70e-3928-a8b5-9a35108a90c2' 
         }
       }).then((result) => {
+        console.log('날씨정보\n');
         console.log(result);
-        alert(result.data.weather.minutely[0].sky.name);
+        this.station_name = result.data.weather.minutely[0].station.name;
+        this.sky = result.data.weather.minutely[0].sky.name;
       })
+      this.$http.get('http://apis.skplanetx.com/weather/dust?'+getXY(),{
+        headers: {
+          appKey : 'd81348e0-a70e-3928-a8b5-9a35108a90c2' 
+        }
+      }).then((result) => {
+        console.log('미세먼지\n');
+        console.log(result);
+        this.dust_value = result.data.weather.dust[0].pm10.value;
+        this.dust_grade = result.data.weather.dust[0].pm10.grade;
+      })
+      this.msg = '불러와 졌습니다.';
       }
       
     }
@@ -51,4 +69,3 @@ export default {
 <style scoped>
 
 </style>
-
