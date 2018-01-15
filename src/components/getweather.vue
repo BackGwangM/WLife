@@ -42,7 +42,7 @@ export default {
     get_weather: function(){
       this.$http.get('http://apis.skplanetx.com/weather/current/minutely?'+getXY(),{
         headers: {
-          appKey : 'd81348e0-a70e-3928-a8b5-9a35108a90c2' 
+          appKey : '---' 
         }
       }).then((result) => {
         console.log('날씨정보\n');
@@ -52,7 +52,7 @@ export default {
       })
       this.$http.get('http://apis.skplanetx.com/weather/dust?'+getXY(),{
         headers: {
-          appKey : 'd81348e0-a70e-3928-a8b5-9a35108a90c2' 
+          appKey : '---' 
         }
       }).then((result) => {
         console.log('미세먼지\n');
