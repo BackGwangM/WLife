@@ -17,9 +17,11 @@ components:{
 <style scoped>
 #tile{
     position: absolute;
-    top:25vh;
+    top:20vh;
     left: 15vw;
     display: inline;
+    animation-name: uptile;
+    animation-duration: 0.5s;
 }
     .card{
         position: relative;
@@ -28,7 +30,7 @@ components:{
         padding-top: 3vh;
         top:2vh;
         width: 18vw;
-        height: 47vh;
+        height: 60vh;
         background-color: white;
     }
     .card:before{
@@ -52,5 +54,21 @@ components:{
         border-right: 2vw solid transparent;
         width: 16vw;
         height: 0;
+    }
+    @keyframes uptile{
+        from{
+            opacity: 0;
+            top:50vh;
+            left: 0vw;
+        }
+        75%{
+            top:17.5vh;
+            left: 17.5vw;
+        }
+        to{
+            opacity: 1;
+            top: 20vh;
+            left: 15vw;
+        }
     }
 </style>
