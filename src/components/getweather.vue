@@ -1,30 +1,52 @@
 <template>
   <div id="weather">
-    <button v-if="msg=='날씨를 불러와 주세요'" v-on:click="get_weather">날씨 불러오기</button><br>
-    <span v-if="msg!='날씨를 불러와 주세요'||sky!='error'">현재 {{station_name}}의 날씨는 {{sky}}이며 미세먼지 농도는 {{dust_value}}㎍/㎥으로써 {{dust_grade}}수준입니다.</span>
-    <div id="weather"></div>
+    <img src="../assets/refresh-button.png" alt="새로고침" v-on:click="get_weather" id="refresh"><br>
+    <span v-if="msg!='날씨를 불러와 주세요'||sky!='error'">현재 {{station_name}}의 날씨는 {{sky}}상태이며 미세먼지 농도는 {{dust_value}}㎍/㎥으로써 {{dust_grade}}수준입니다.</span>
   </div>
   
 </template>
 <script>
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 var lat, lon;
 if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
         lat = position.coords.latitude;
         lon = position.coords.longitude;
+        setCookie('lat',lat,1);
+        setCookie('lon',lon,1);
         }, function(error) {
           console.error(error);
         }, {enableHighAccuracy : false,
             maximumAge:0,
             timeout: Infinity
         });
-        
       }
       else{
         alert('GPS가 지원되지 않습니다. 지역선택은 추후 지원할 예정입니다.');
       }
   var getXY = function(){
-  var param = 'lat='+lat+'&lon='+lon+'&version=1';
+  var param = 'lat='+getCookie('lat')+'&lon='+getCookie('lon')+'&version=1';
   return param;
   }
 export default {
@@ -38,8 +60,14 @@ export default {
         dust_grade: 'error'
       }
   },
+  mounted: function(){
+    this.$nextTick(function(){
+      this.get_weather()
+    })
+  },
   methods: {
-    get_weather: function(){
+    get_weather: 
+    function(){
       this.$http.get('http://apis.skplanetx.com/weather/current/minutely?'+getXY(),{
         headers: {
           appKey : '---' 
@@ -48,7 +76,7 @@ export default {
         console.log('날씨정보\n');
         console.log(result);
         this.station_name = result.data.weather.minutely[0].station.name;
-        this.sky = result.data.weather.minutely[0].sky.name;
+        this.sky = result.data.weather.minutely[0].sky.code;
       })
       this.$http.get('http://apis.skplanetx.com/weather/dust?'+getXY(),{
         headers: {
@@ -67,5 +95,10 @@ export default {
   }
 </script>
 <style scoped>
-
+  #refresh{
+    width: 2.5vh;
+    position: absolute;
+    top:2vh;
+    right: 1.5vw;
+  }
 </style>
