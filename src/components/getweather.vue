@@ -29,7 +29,7 @@
       <div v-if="tomorrow_sky_code=='SKY_M01'" class="tomorrow_weather_icon sun"></div>
       <div v-if="tomorrow_sky_code=='SKY_M02'" class="tomorrow_weather_icon cloud"></div>
       <div v-if="tomorrow_sky_code=='SKY_M03'" class="tomorrow_weather_icon cloud_many"></div>
-      <div v-if="tomorrow_sky_code=='SKY_M04'" class="tomorrow_weather_icon frog"></div>
+      <div v-if="tomorrow_sky_code=='SKY_M04'" class="tomorrow_weather_icon fog"></div>
       <div v-if="tomorrow_sky_code=='SKY_M05'" class="tomorrow_weather_icon rain"></div>
       <div v-if="tomorrow_sky_code=='SKY_M06'" class="tomorrow_weather_icon snow"></div>
       <div v-if="tomorrow_sky_code=='SKY_M07'" class="tomorrow_weather_icon rain-snow"></div>
@@ -171,6 +171,9 @@ export default {
     display: flex;
     justify-content: center;
   }
+  .cloud{
+    background-image: url('../assets/cloud.png')
+  }
   .cloud_many{
     background-image: url('../assets/cloud-many.png');
   }
@@ -248,6 +251,8 @@ export default {
     background-size: 100%;
   }
   #tommorrow_temperature{
+    position: relative;
+    top:1.5vh;
     display: inline;
     font-size: 1.1vmax;
   }
