@@ -1,0 +1,298 @@
+@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+body {
+    font-family: NanumSquare;
+    margin: 0;
+    background-image: url(https://images.unsplash.com/photo-1468276311594-df7cb65d8df6?auto=format&fit=crop&q=80&w=1950);
+    background-position: 50%;
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    overflow-x: hidden
+}
+
+#app {
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 100vh
+}
+
+#topbar[data-v-2f31e979] {
+    background-color: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 10vh;
+    padding-left: 3vw;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+#title[data-v-2f31e979] {
+    font-size: 5vmin;
+    font-weight: 900;
+    color: #abffff
+}
+
+#menu_box[data-v-2f31e979] {
+    position: relative;
+    left: 5vw;
+    font-size: 4vmin
+}
+
+.menu[data-v-2f31e979] {
+    display: inline;
+    margin-left: 15vw;
+    text-decoration: none;
+    position: relative
+}
+
+.menu[data-v-2f31e979]:after {
+    content: "";
+    position: absolute;
+    bottom: -2.75vh;
+    left: -.8vw;
+    width: 0;
+    border-left: .5vmin solid transparent;
+    border-right: .5vmin solid transparent;
+    border-bottom: .5vmin solid #fff;
+    transition: .4s
+}
+
+.menu[data-v-2f31e979]:hover:after {
+    width: 9vw
+}
+
+.long.menu[data-v-2f31e979]:hover:after {
+    width: 10vw
+}
+
+#tile[data-v-63760fd6] {
+    position: absolute;
+    top: 20vh;
+    left: 15vw;
+    display: inline;
+    -webkit-animation-name: uptile-data-v-63760fd6;
+    animation-name: uptile-data-v-63760fd6;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s
+}
+
+.card[data-v-63760fd6] {
+    position: relative;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 3vh;
+    top: 2vh;
+    width: 18vw;
+    height: 60vh;
+    background-color: #fff
+}
+
+.card[data-v-63760fd6]:before {
+    content: "";
+    position: absolute;
+    top: -2vw;
+    left: 0;
+    border-bottom: 2vw solid #fff;
+    border-left: 2vw solid transparent;
+    border-right: 2vw solid #fff;
+    width: 16vw;
+    height: 0
+}
+
+.card[data-v-63760fd6]:after {
+    content: "";
+    position: absolute;
+    bottom: -2vw;
+    left: 0;
+    border-top: 2vw solid #fff;
+    border-left: 2vw solid #fff;
+    border-right: 2vw solid transparent;
+    width: 16vw;
+    height: 0
+}
+
+@-webkit-keyframes uptile-data-v-63760fd6 {
+    0% {
+        opacity: 0;
+        top: 50vh;
+        left: 0
+    }
+    75% {
+        top: 17.5vh;
+        left: 17.5vw
+    }
+    to {
+        opacity: 1;
+        top: 20vh;
+        left: 15vw
+    }
+}
+
+@keyframes uptile-data-v-63760fd6 {
+    0% {
+        opacity: 0;
+        top: 50vh;
+        left: 0
+    }
+    75% {
+        top: 17.5vh;
+        left: 17.5vw
+    }
+    to {
+        opacity: 1;
+        top: 20vh;
+        left: 15vw
+    }
+}
+
+#refresh[data-v-9e46a152] {
+    width: 2.5vh;
+    position: absolute;
+    top: 2vh;
+    right: 1.5vw
+}
+
+.weather_icon[data-v-9e46a152] {
+    margin-top: 2.5vh;
+    position: relative;
+    left: 1vw;
+    width: 15vh;
+    height: 15vh;
+    background-size: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.cloud[data-v-9e46a152] {
+    background-image: url('../img/cloud.d7ae436.png')
+}
+
+.cloud_many[data-v-9e46a152] {
+    background-image: url('../img/cloud-many.84fdb1d.png')
+}
+
+.rain[data-v-9e46a152] {
+    background-image: url('../img/drop.3d19d1e.png')
+}
+
+.fog[data-v-9e46a152] {
+    background-image: url('../img/fog.34a3809.png')
+}
+
+.sun[data-v-9e46a152] {
+    background-image: url('../img/sun.162acf6.png')
+}
+
+.snow[data-v-9e46a152] {
+    background-image: url('../img/snow.6046a78.png')
+}
+
+.rain-snow[data-v-9e46a152] {
+    background-image: url('../img/rain_snow.16072a0.png')
+}
+
+#station[data-v-9e46a152] {
+    position: absolute;
+    top: 11.5vh;
+    left: 12vw;
+    font-size: 2.5vmax
+}
+
+.weather_icon span[data-v-9e46a152] {
+    position: relative;
+    top: 15vh;
+    font-size: 1vmax
+}
+
+#weather_temperature[data-v-9e46a152] {
+    margin-top: 4vh;
+    text-align: left;
+    font-size: 1.1vmax
+}
+
+#tc[data-v-9e46a152] {
+    color: #f90
+}
+
+.tmax[data-v-9e46a152] {
+    margin-right: .8vw;
+    color: #ff3939
+}
+
+.tmin[data-v-9e46a152] {
+    color: #08f
+}
+
+#weather_temperature div[data-v-9e46a152] {
+    margin-top: 1vh
+}
+
+#weather_temperature #humidity_dust[data-v-9e46a152] {
+    margin-top: 3vh
+}
+
+#humidity[data-v-9e46a152] {
+    color: #66a1f9
+}
+
+#dust[data-v-9e46a152] {
+    color: #9b9b47
+}
+
+#tomorrow[data-v-9e46a152] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+#tomorrow_title[data-v-9e46a152] {
+    font-size: 1.5vmax;
+    margin-top: 5vh;
+    margin-bottom: 3vh
+}
+
+.tomorrow_weather_icon[data-v-9e46a152] {
+    margin-top: 2.5vh;
+    position: absolute;
+    right: 1vw;
+    width: 10vh;
+    height: 10vh;
+    background-size: 100%
+}
+
+#tommorrow_temperature[data-v-9e46a152] {
+    position: relative;
+    top: 1.5vh;
+    display: inline;
+    font-size: 1.1vmax
+}
+
+a[data-v-9e46a152]:hover,
+a[data-v-9e46a152]:link,
+a[data-v-9e46a152]:visited {
+    color: #000
+}
+
+#link-box[data-v-9e46a152] {
+    position: relative;
+    top: 4vh
+}
+
+#link-box a[data-v-9e46a152] {
+    position: absolute;
+    right: .5vw;
+    font-size: 1vmax
+}
+
+
+/*# sourceMappingURL=app.b172598819da8a6baeb020aab8041940.css.map */
