@@ -31,4 +31,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 버전
 ------
-*[버전 1](https://backgwangm.github.io/WLife/ver.1/) (메인 페이지 날씨 탭 구현) [위치허용 + 안전하지 않은 스크립트 허용이 필요함]
+* [버전 1](https://backgwangm.github.io/WLife/ver.1/) (메인 페이지 날씨 탭 구현) [위치허용 + 안전하지 않은 스크립트 허용이 필요함]
