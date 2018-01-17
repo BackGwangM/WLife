@@ -27,3 +27,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 * axios
     * [axios 명령어](https://wpsn-axios-example.glitch.me/)
     * [Vue에서 axios 사용법](http://vuejs.kr/update/2017/01/04/http-request-with-axios/)
+
+
+버전
+------
+*[버전 1](https://backgwangm.github.io/WLife/ver.1/) (메인 페이지 날씨 탭 구현) [위치허용 + 안전하지 않은 스크립트 허용이 필요함]
